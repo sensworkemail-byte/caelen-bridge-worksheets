@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
     try {
       await resend.emails.send({
-        from: "noreply@yourdomain.com",
+        from: "onboarding@resend.dev",
         to: process.env.NOTIFICATION_EMAIL!,
         subject: "New Website Submission",
         text: "A new submission has been received. Please log in to Supabase or the admin dashboard to view details.",
