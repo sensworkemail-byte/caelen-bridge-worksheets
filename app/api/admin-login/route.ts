@@ -30,7 +30,9 @@ export async function POST(request: NextRequest) {
     // Fetch submissions from Supabase
     const { data: submissions, error } = await supabase
       .from("contact_submissions")
-      .select("name, service_interest, contact_method, submitted_at, message")
+      .select(
+        "name, service_interest, contact_method, email, phone, text_number, submitted_at, message, concern_level, urgency_level, comfort_level, impact_level, readiness_level",
+      )
       .order("submitted_at", { ascending: false })
 
     if (error) {
