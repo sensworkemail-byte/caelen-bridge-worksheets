@@ -1,54 +1,100 @@
-import { headers } from "next/headers"
-import { createClient } from "@supabase/supabase-js"
+"use client"
 
-// Basic Auth verification function
-function verifyBasicAuth(authHeader: string | null): boolean {
-  if (!authHeader || !authHeader.startsWith("Basic ")) {
-    return false
-  }
+import { useState } from "react"
 
-  const base64Credentials = authHeader.slice(6)
-  const credentials = Buffer.from(base64Credentials, "base64").toString("ascii")
-  const [username, password] = credentials.split(":")
-
-  const adminUser = process.env.ADMIN_USER
-  const adminPass = process.env.ADMIN_PASS
-
-  return username === adminUser && password === adminPass
+interface Submission {
+  name: string
+  service_interest: string
+  contact_method: string
+  submitted_at: string
+  message: string
 }
 
-export default async function AdminPage() {
-  const headersList = headers()
-  const authorization = headersList.get("authorization")
+export default function AdminPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [error, setError] = useState("")
+  const [submissions, setSubmissions] = useState<Submission[]>([])
+  const [loading, setLoading] = useState(false)
 
-  if (!verifyBasicAuth(authorization)) {
+  const handleLogin = async (formData: FormData) => {
+    setLoading(true)
+    setError("")
+
+    const username = formData.get("username") as string
+    const password = formData.get("password") as string
+
+    try {
+      const response = await fetch("/api/admin-login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsLoggedIn(true)
+        setSubmissions(result.submissions)
+      } else {
+        setError("Invalid credentials. Please try again.")
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.")
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (!isLoggedIn) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
-            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Unauthorized</h2>
-            <p className="mt-2 text-sm text-gray-600">You must provide valid credentials</p>
+            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Admin Login</h2>
+            <p className="mt-2 text-sm text-gray-600">Enter your credentials to access the dashboard</p>
           </div>
-        </div>
-      </div>
-    )
-  }
 
-  // Initialize Supabase client
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
+          <form action={handleLogin} className="mt-8 space-y-6">
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                  Username
+                </label>
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  required
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
 
-  const { data: submissions, error } = await supabase
-    .from("contact_submissions")
-    .select("name, service_interest, contact_method, submitted_at, message")
-    .order("submitted_at", { ascending: false })
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+            </div>
 
-  if (error) {
-    console.error("Error fetching submissions:", error)
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
-          <p className="text-gray-600">Failed to load submissions: {error.message}</p>
+            {error && <div className="text-red-600 text-sm text-center">{error}</div>}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+            >
+              {loading ? "Signing in..." : "Sign in"}
+            </button>
+          </form>
         </div>
       </div>
     )
@@ -57,9 +103,17 @@ export default async function AdminPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="mt-2 text-gray-600">Contact form submissions</p>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+            <p className="mt-2 text-gray-600">Contact form submissions</p>
+          </div>
+          <button
+            onClick={() => setIsLoggedIn(false)}
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+          >
+            Logout
+          </button>
         </div>
 
         <div className="bg-white shadow-sm rounded-lg overflow-hidden">
