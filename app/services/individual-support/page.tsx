@@ -233,17 +233,13 @@ export default function IndividualSupportPage() {
 
           {/* Coverage Map Section - Enhanced Visual Design */}
           <div className="bg-white border border-gray-200 rounded-xl p-8 mb-12 shadow-sm">
-            <h2 className="text-3xl font-light text-[#1A3D5D] mb-6 text-center">Coverage Map</h2>
-            <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto leading-relaxed">
-              In-person sessions are available within Sussex. Our coverage area is shown below to help you understand
-              our service reach.
-            </p>
+            <h2 className="text-2xl font-light text-[#1A3D5D] mb-6 text-center">In-Person Sessions Within Sussex</h2>
             <div className="flex justify-center">
-              <div className="max-w-md w-full">
+              <div className="max-w-2xl w-full">
                 <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20250910-WA0003.jpg-Eb4VF31nYPTkNhBrS54kgvpuC7awwq.jpeg"
-                    alt="Coverage map showing Sussex location"
+                    src="/sussex-coverage-map.png"
+                    alt="Coverage map showing Sussex service area with blue boundary outline"
                     className="w-full h-auto rounded-lg shadow-md"
                     loading="lazy"
                     onLoad={() => {

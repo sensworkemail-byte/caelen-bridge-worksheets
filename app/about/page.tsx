@@ -181,7 +181,7 @@ export default function AboutPage() {
                   Family Support
                 </Link>
                 <Link
-                  href="/services/alcohol-home-detox"
+                  href="/services/community-detox"
                   className="block text-gray-600 hover:text-[#1A3D5D] transition-colors"
                 >
                   Alcohol Home Detox
