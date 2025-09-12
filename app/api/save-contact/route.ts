@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
+import { Resend } from "resend"
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
@@ -29,6 +31,18 @@ export async function POST(request: Request) {
     if (error) {
       console.error("Supabase insert error:", error)
       return NextResponse.json({ error: error.message }, { status: 500 })
+    }
+
+    try {
+      await resend.emails.send({
+        from: "noreply@yourdomain.com",
+        to: process.env.NOTIFICATION_EMAIL!,
+        subject: "New Website Submission",
+        text: "A new submission has been received. Please log in to Supabase or the admin dashboard to view details.",
+      })
+    } catch (emailError) {
+      console.error("Email notification error:", emailError)
+      // Continue with success response even if email fails
     }
 
     return NextResponse.json({ success: true })
