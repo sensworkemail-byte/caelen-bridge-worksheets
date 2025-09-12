@@ -17,42 +17,30 @@ function verifyBasicAuth(authHeader: string | null): boolean {
   return username === adminUser && password === adminPass
 }
 
-// Component to trigger Basic Auth prompt
-function BasicAuthPrompt() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Authentication Required</h2>
-          <p className="mt-2 text-sm text-gray-600">Please provide valid credentials to access the admin panel.</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default async function AdminPage() {
   const headersList = headers()
   const authorization = headersList.get("authorization")
 
-  // Check Basic Auth
   if (!verifyBasicAuth(authorization)) {
-    return new Response("Unauthorized", {
-      status: 401,
-      headers: {
-        "WWW-Authenticate": 'Basic realm="Admin Area"',
-      },
-    })
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="max-w-md w-full space-y-8">
+          <div className="text-center">
+            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Unauthorized</h2>
+            <p className="mt-2 text-sm text-gray-600">You must provide valid credentials</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   // Initialize Supabase client
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
 
-  // Fetch contact submissions
   const { data: submissions, error } = await supabase
     .from("contact_submissions")
-    .select("*")
-    .order("created_at", { ascending: false })
+    .select("name, service_interest, contact_method, submitted_at, message")
+    .order("submitted_at", { ascending: false })
 
   if (error) {
     console.error("Error fetching submissions:", error)
@@ -85,16 +73,16 @@ export default async function AdminPage() {
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">
-                      Preferred Name
+                      Name
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">
-                      Service Interest
+                      Service
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">
-                      Contact Method
+                      Method
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">
-                      Submitted At
+                      Submitted
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Message
@@ -103,9 +91,9 @@ export default async function AdminPage() {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {submissions.map((submission, index) => (
-                    <tr key={submission.id} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r border-gray-200">
-                        {submission.preferred_name || "N/A"}
+                        {submission.name || "N/A"}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-r border-gray-200">
                         {submission.service_interest || "N/A"}
@@ -114,7 +102,7 @@ export default async function AdminPage() {
                         {submission.contact_method || "N/A"}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-r border-gray-200">
-                        {submission.created_at ? new Date(submission.created_at).toLocaleString() : "N/A"}
+                        {submission.submitted_at ? new Date(submission.submitted_at).toLocaleString() : "N/A"}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">
                         <div className="truncate" title={submission.message || "No message"}>
