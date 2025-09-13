@@ -63,7 +63,7 @@ export default function CommunityDetoxPage() {
             <h1 className="text-4xl md:text-5xl font-light text-[#1A3D5D] mb-6 text-balance">Alcohol Home Detox</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto text-pretty">
               A discreet, home-based alternative to inpatient detox, arranged through our trusted associate specialist
-              nurses.
+              nurse.
             </p>
           </div>
         </div>
@@ -79,6 +79,10 @@ export default function CommunityDetoxPage() {
                 Community detox provides medical supervision in the comfort of your own home, carried out by an
                 experienced independent nurse. This allows you to avoid the disruption of residential treatment while
                 ensuring professional oversight and safe withdrawal management.
+              </p>
+              <p className="text-gray-600 mb-4">
+                During the process, both the patient and a chosen carer are supported directly, with guidance provided
+                throughout to ensure safety and comfort.
               </p>
               <div className="bg-[#1A3D5D] text-white p-4 rounded-lg mt-6">
                 <h3 className="text-lg font-medium mb-2">Service Area</h3>
@@ -147,6 +151,34 @@ export default function CommunityDetoxPage() {
                   </svg>
                   Ability to stay connected to family and familiar surroundings
                 </li>
+                <li className="flex items-start">
+                  <svg
+                    className="w-5 h-5 text-[#1A3D5D] mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Daily nurse visits in the early stage of detox, plus a final check-in at completion
+                </li>
+                <li className="flex items-start">
+                  <svg
+                    className="w-5 h-5 text-[#1A3D5D] mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  24-hour telephone support available throughout the detox
+                </li>
               </ul>
             </div>
           </div>
@@ -161,7 +193,7 @@ export default function CommunityDetoxPage() {
                 <h3 className="font-medium text-[#1A3D5D] mb-2">Initial Assessment</h3>
                 <p className="text-gray-600 text-base">
                   A full medical assessment carried out by the associate nurse to confirm whether home detox is
-                  appropriate.
+                  appropriate. The detox process is explained clearly to both the patient and their carer at this stage.
                 </p>
               </div>
               <div className="text-center">
@@ -170,7 +202,8 @@ export default function CommunityDetoxPage() {
                 </div>
                 <h3 className="font-medium text-[#1A3D5D] mb-2">Personalised Plan</h3>
                 <p className="text-gray-600 text-base">
-                  The nurse designs and oversees a tailored detox schedule, including monitoring and safety protocols.
+                  The nurse designs and oversees a tailored detox schedule. Medication is issued daily to the carer,
+                  alongside advice and support to ensure the detox proceeds safely.
                 </p>
               </div>
               <div className="text-center">
@@ -179,8 +212,8 @@ export default function CommunityDetoxPage() {
                 </div>
                 <h3 className="font-medium text-[#1A3D5D] mb-2">Ongoing Support</h3>
                 <p className="text-gray-600 text-base">
-                  Once detox is complete, Caelen provides structured relapse-prevention and one-to-one support to help
-                  maintain progress.
+                  The nurse remains in contact throughout the detox with visits and check-ins, while Caelen provides
+                  structured relapse-prevention and one-to-one support once the detox is complete.
                 </p>
               </div>
             </div>
