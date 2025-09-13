@@ -17,7 +17,7 @@ export default function ContactPage() {
           <div className="flex justify-between items-center h-full">
             <div className="flex items-center">
               <Link href="/">
-                <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-40 w-auto" />
+                <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-48 w-auto" />
               </Link>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -45,7 +45,7 @@ export default function ContactPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-6 px-6">
+      <section className="py-8 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#1A3D5D] mb-6 text-balance">Connect With Us</h1>
           <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -55,11 +55,11 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Options */}
-      <section className="py-2 px-4">
+      <section className="py-8 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Phone Support */}
-            <div className="text-center p-8 border border-gray-200 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 border border-gray-200 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="w-16 h-16 bg-[#1A3D5D]/10 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-[#1A3D5D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -71,19 +71,19 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-[#1A3D5D] mb-4">Phone Support</h3>
-              <p className="text-gray-600 mb-6">
-                Leave a confidential message and a professional counselor will call you back for support and guidance.
+              <p className="text-gray-600 mb-6 flex-grow">
+                Leave a confidential message and a member of the team will call you back for support and guidance.
               </p>
               <Link
                 href="/contact-phone"
-                className="bg-[#1A3D5D] text-white px-6 py-3 rounded-lg hover:bg-[#0f2a42] transition-colors inline-block"
+                className="bg-[#1A3D5D] text-white px-6 py-3 rounded-lg hover:bg-[#0f2a42] transition-colors inline-block mt-auto"
               >
                 Call Options
               </Link>
             </div>
 
             {/* Send Message */}
-            <div className="text-center p-8 border border-gray-200 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 border border-gray-200 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="w-16 h-16 bg-[#1A3D5D]/10 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-[#1A3D5D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -95,19 +95,19 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-[#1A3D5D] mb-4">Send Message</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-6 flex-grow">
                 Fill out our secure contact form and we'll respond within 24 hours during business days.
               </p>
               <Link
                 href="/contact-form#send-message"
-                className="bg-[#1A3D5D] text-white px-6 py-3 rounded-lg hover:bg-[#0f2a42] transition-colors inline-block"
+                className="bg-[#1A3D5D] text-white px-6 py-3 rounded-lg hover:bg-[#0f2a42] transition-colors inline-block mt-auto"
               >
                 Send Message
               </Link>
             </div>
 
             {/* Email */}
-            <div className="text-center p-8 border border-gray-200 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+            <div className="text-center p-8 border border-gray-200 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="w-16 h-16 bg-[#1A3D5D]/10 rounded-lg flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-[#1A3D5D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -119,10 +119,10 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-[#1A3D5D] mb-4">Email</h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-6 flex-grow">
                 Send us a message using our encrypted email system for complete privacy and confidentiality.
               </p>
-              <div className="space-y-2">
+              <div className="space-y-2 mt-auto">
                 <div className="font-semibold text-[#1A3D5D]">contact@caelen.co.uk</div>
                 <div className="text-sm text-gray-500">General inquiries</div>
               </div>
@@ -132,10 +132,10 @@ export default function ContactPage() {
       </section>
 
       {/* Office Hours */}
-      <section className="py-8 px-4">
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white border-l-4 border-[#1A3D5D] p-6 rounded-lg shadow-sm">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Office Hours</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Office Hours</h3>
             <div className="space-y-2 text-gray-800">
               <div className="flex justify-between">
                 <span>Monday - Friday:</span>
@@ -155,7 +155,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-16 w-auto mb-4" />
+              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-24 w-auto mb-4" />
               <p className="text-gray-600 mb-4">
                 Professional, confidential support for individuals and families affected by substance use.
               </p>
@@ -219,7 +219,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
-            <p>&copy; 2024 Caelen Bridge. All rights reserved.</p>
+            <p>&copy; 2025 Caelen Bridge. All rights reserved.</p>
           </div>
         </div>
       </footer>

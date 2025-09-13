@@ -356,7 +356,8 @@ export default function ContactFormPage() {
 
               <div className="mb-6">
                 <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
-                  How much is this affecting your day-to-day life?
+                  {/* Updated question text */}
+                  is your level of use...
                 </label>
                 <div className="px-3">
                   <input

@@ -16,7 +16,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex items-center justify-between h-full">
             <Link href="/" className="block">
-              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-40 w-auto" />
+              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-48 w-auto" />
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/" className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors">
@@ -41,7 +41,7 @@ export default function AboutPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-12 pb-8 px-6">
+      <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#1A3D5D] mb-6 text-balance">About Caelen Bridge</h1>
           <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">Why us & how we work</p>
@@ -49,9 +49,9 @@ export default function AboutPage() {
       </section>
 
       {/* Main Content */}
-      <section className="pt-4 pb-20">
+      <section className="py-0">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+          <div className="space-y-8">
             {/* Introduction */}
             <div className="text-center bg-white p-8 rounded-lg shadow-md border-l-4 border-[#1A3D5D]">
               <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -72,30 +72,38 @@ export default function AboutPage() {
 
             {/* Mission */}
             <div className="bg-white p-10 rounded-lg shadow-lg border-2 border-[#1A3D5D]">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Our Mission</h2>
+              <h2 className="text-3xl font-semibold text-gray-900 mb-6 text-center">Our Mission</h2>
               <p className="text-lg text-gray-700 text-center leading-relaxed">
                 To provide approaches that work — removing barriers and focusing on what makes progress possible.
               </p>
             </div>
 
             {/* Approach */}
-            <div className="bg-#f8f9fa p-10 rounded-lg shadow-md">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Approach</h2>
-              <ul className="space-y-4 text-lg text-gray-700 max-w-3xl mx-auto">
-                <li className="flex items-start">
-                  <span className="text-[#1A3D5D] mr-3 text-xl">•</span>
+            <div className="bg-#f8f9fa p-10 rounded-lg shadow-md -mt-6">
+              <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">Our Approach</h2>
+              <ul className="space-y-6 text-lg text-gray-700 max-w-3xl mx-auto">
+                <li className="flex items-start bg-white p-4 rounded-lg shadow-sm border-l-4 border-[#1A3D5D]">
+                  <span className="bg-[#1A3D5D] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5 flex-shrink-0">
+                    •
+                  </span>
                   <span>Evidence-based methods that are proven to work</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-[#1A3D5D] mr-3 text-xl">•</span>
+                <li className="flex items-start bg-white p-4 rounded-lg shadow-sm border-l-4 border-[#1A3D5D]">
+                  <span className="bg-[#1A3D5D] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5 flex-shrink-0">
+                    •
+                  </span>
                   <span>Flexible scheduling around your commitments</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-[#1A3D5D] mr-3 text-xl">•</span>
+                <li className="flex items-start bg-white p-4 rounded-lg shadow-sm border-l-4 border-[#1A3D5D]">
+                  <span className="bg-[#1A3D5D] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5 flex-shrink-0">
+                    •
+                  </span>
                   <span>Complete confidentiality with no shared records</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-[#1A3D5D] mr-3 text-xl">•</span>
+                <li className="flex items-start bg-white p-4 rounded-lg shadow-sm border-l-4 border-[#1A3D5D]">
+                  <span className="bg-[#1A3D5D] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5 flex-shrink-0">
+                    •
+                  </span>
                   <span>Progress tracking that feels meaningful to you</span>
                 </li>
               </ul>
@@ -103,7 +111,7 @@ export default function AboutPage() {
 
             {/* Experience */}
             <div className="bg-white border-l-4 border-[#1A3D5D] p-10 shadow-lg rounded-lg">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Experience</h2>
+              <h2 className="text-3xl font-semibold text-gray-900 mb-6">Experience</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Our team have supported hundreds of people in addressing alcohol and drug use with clarity and respect.
                 We understand the pressures people face and are committed to providing discreet, reliable input that can
@@ -125,9 +133,9 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8">Considering your options?</h2>
+          <h2 className="text-3xl font-semibold text-gray-900 mb-8">Considering your options?</h2>
           <p className="text-lg text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
             Every journey begins with a single conversation. I'm here to provide the support and guidance you need, when
             you're ready.
@@ -153,7 +161,7 @@ export default function AboutPage() {
       <footer className="border-t border-gray-200 py-12 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
-            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-16 w-auto mx-auto mb-4" />
+            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-24 w-auto mx-auto mb-4" />
             <p className="text-gray-600 max-w-2xl mx-auto">
               Professional, confidential support for individuals and families affected by addiction.
             </p>
@@ -206,7 +214,7 @@ export default function AboutPage() {
 
           <div className="pt-8 border-t border-gray-200">
             <p className="text-gray-500 text-sm">
-              © 2024 Caelen Bridge. All rights reserved. | We aim to respond within 24 hours during business days.
+              © 2025 Caelen Bridge. All rights reserved. | We aim to respond within 24 hours during business days.
             </p>
           </div>
         </div>

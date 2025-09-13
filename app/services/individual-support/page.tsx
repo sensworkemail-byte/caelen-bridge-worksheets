@@ -16,7 +16,7 @@ export default function IndividualSupportPage() {
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <Link href="/" className="block">
-              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-40 w-auto" />
+              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-16 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -242,12 +242,6 @@ export default function IndividualSupportPage() {
                     alt="Coverage map showing Sussex service area with blue boundary outline"
                     className="w-full h-auto rounded-lg shadow-md"
                     loading="lazy"
-                    onLoad={() => {
-                      // Prevent any scroll jumping when image loads
-                      if (window.location.hash === "") {
-                        window.scrollTo(0, 0)
-                      }
-                    }}
                   />
                   <p className="text-sm text-gray-500 text-center mt-3 font-medium">
                     Coverage area for in-person sessions within Sussex
@@ -270,13 +264,13 @@ export default function IndividualSupportPage() {
                   href="/contact"
                   className="bg-white text-[#1A3D5D] px-8 py-4 rounded-lg hover:bg-gray-100 transition-all duration-200 text-center font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                 >
-                  Book Consultation
+                  Start Journey
                 </Link>
                 <Link
-                  href="tel:08006546848"
+                  href="/contact"
                   className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-[#1A3D5D] transition-all duration-200 text-center font-medium"
                 >
-                  Call to Discuss: 0800 654 6848
+                  Call Us
                 </Link>
               </div>
             </div>
@@ -288,7 +282,7 @@ export default function IndividualSupportPage() {
       <footer className="py-10 px-6 border-t border-gray-200">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2024 Caelen Bridge. Professional substance support services. All consultations are confidential.
+            © 2025 Caelen Bridge. Professional substance support services. All consultations are confidential.
           </p>
         </div>
       </footer>

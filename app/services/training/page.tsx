@@ -237,7 +237,7 @@ export default function TrainingPage() {
       <footer className="py-10 px-6 border-t border-gray-200">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2024 Caelen Bridge. Professional substance support services. All consultations are confidential.
+            © 2025 Caelen Bridge. Professional substance support services. All consultations are confidential.
           </p>
         </div>
       </footer>

@@ -179,7 +179,7 @@ export default function CommunityDetoxPage() {
                 </div>
                 <h3 className="font-medium text-[#1A3D5D] mb-2">Ongoing Support</h3>
                 <p className="text-gray-600 text-base">
-                  Once detox is complete, Caelen provides structured relapse-prevention and one-to-one support to
+                  Once detox is complete, Caelen provides structured relapse-prevention and one-to-one support to help
                   maintain progress.
                 </p>
               </div>
@@ -212,7 +212,7 @@ export default function CommunityDetoxPage() {
       <footer className="py-10 px-6 border-t border-gray-200">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2024 Caelen Bridge. Professional substance support services. All consultations are confidential.
+            © 2025 Caelen Bridge. Professional substance support services. All consultations are confidential.
           </p>
         </div>
       </footer>

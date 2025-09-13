@@ -22,7 +22,7 @@ const HomePage = () => {
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <Link href="/" className="block">
-              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-40 w-auto" />
+              <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-48 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -51,13 +51,13 @@ const HomePage = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-12 px-6">
+      <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className={`${inter.className} text-4xl md:text-5xl font-bold text-[#1A3D5D] mb-6 text-balance`}>
             Private Alcohol & Drug Support
           </h1>
           <p className="text-xl text-gray-700 mb-16 max-w-2xl mx-auto leading-relaxed">
-            Confidential support for individuals and families addressing substance misuse concerns
+            Specialist support for individuals and families, delivered with complete discretion.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact-form" scroll={false}>
@@ -77,50 +77,20 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      {showTrustIndicators && (
-        <section className="py-16 px-6 bg-[#f8f9fa]">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-12">
-              <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-1 bg-[#1A3D5D] mx-auto mb-6 rounded-full"></div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Complete Discretion</h3>
-                <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
-                  No referrals, no shared records, no clinical paperwork. Your privacy is our priority.
-                </p>
-              </div>
-              <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-1 bg-[#1A3D5D] mx-auto mb-6 rounded-full"></div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Experienced Practitioners</h3>
-                <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
-                  Qualified substance misuse practitioners with over 40 years of combined experience.
-                </p>
-              </div>
-              <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-1 bg-[#1A3D5D] mx-auto mb-6 rounded-full"></div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Tailored Support</h3>
-                <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
-                  One-to-one guidance designed around your lifestyle, schedule, and circumstances.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Services */}
       {showServices && (
-        <section className="py-16 px-6">
+        <section className="py-8 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#1A3D5D] mb-4 text-center">Our Services</h2>
+            <h2 className="text-3xl font-semibold text-[#1A3D5D] mb-4 text-center">Our Services</h2>
             <p className="text-xl text-gray-700 text-center mb-20 max-w-3xl mx-auto leading-relaxed">
-              From early reflection to ongoing development, explore the full range of confidential services we provide.
+              From early reflection to ongoing development, explore the full range of services designed around your
+              needs.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="border-2 border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col bg-white shadow-md border-l-4 border-l-[#1A3D5D]">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">One to One Support</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">One to One Support</h3>
                 <p className="text-gray-700 mb-6 leading-relaxed flex-grow">
-                  Confidential conversation to understand your situation and explore available options.
+                  A private space to talk openly about your situation and explore the options available.
                 </p>
                 <ul className="text-sm text-gray-600 mb-8 space-y-2 min-h-[4.5rem]">
                   <li>• Share concerns without pressure or judgement</li>
@@ -134,7 +104,7 @@ const HomePage = () => {
                 </Link>
               </div>
               <div className="border-2 border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col bg-white shadow-md border-l-4 border-l-[#1A3D5D]">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Alcohol Home Detox</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Alcohol Home Detox</h3>
                 <p className="text-gray-700 mb-6 leading-relaxed flex-grow">
                   Alcohol home detox with medical liaison and structured oversight throughout the process.
                 </p>
@@ -150,7 +120,7 @@ const HomePage = () => {
                 </Link>
               </div>
               <div className="border-2 border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col bg-white shadow-md border-l-4 border-l-[#1A3D5D]">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Family Support</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Family Support</h3>
                 <p className="text-gray-700 mb-6 leading-relaxed flex-grow">
                   Support for families and partners affected by substance use, providing guidance and perspective
                   through the process.
@@ -167,49 +137,30 @@ const HomePage = () => {
                 </Link>
               </div>
             </div>
-            {/* <div className="flex justify-center">
-              <div className="border-2 border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 max-w-lg bg-white shadow-md border-l-4 border-l-[#1A3D5D]">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Services</h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  Workplace training and awareness programs with employee assistance program development for
-                  organisations.
-                </p>
-                <ul className="text-sm text-gray-600 mb-8 space-y-2">
-                  <li>• Professional partnerships and referral networks</li>
-                  <li>• Training for healthcare and social care professionals</li>
-                  <li>• Consultancy for organisations addressing substance issues</li>
-                </ul>
-                <Link href="/services/professional-services">
-                  <Button className="bg-[#1A3D5D] hover:bg-[#0f2a42] text-white px-8 py-3 text-lg rounded-full w-full shadow-md transition-all duration-300 ease-in-out">
-                    Learn More
-                  </Button>
-                </Link>
-              </div>
-            </div> */}
           </div>
         </section>
       )}
 
       {/* Process */}
       {showProcess && (
-        <section className="py-16 px-6 bg-[#f8f9fa]">
+        <section className="py-8 px-6 bg-[#f8f9fa]">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#1A3D5D] mb-4 text-center">How We Work</h2>
+            <h2 className="text-3xl font-semibold text-[#1A3D5D] mb-12 text-center">How We Work</h2>
             <div className="grid md:grid-cols-3 gap-12">
               <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <div className="mx-auto mb-6">
                   <NumberedBadge number={1} size="sm" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Initial Contact</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Initial Contact</h3>
                 <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
-                  Confidential conversation to understand your situation and explore available options
+                  An initial conversation to understand your situation and outline potential options
                 </p>
               </div>
               <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <div className="mx-auto mb-6">
                   <NumberedBadge number={2} size="sm" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Tailored Plan</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Tailored Plan</h3>
                 <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
                   Develop a support approach that fits your lifestyle and personal circumstances
                 </p>
@@ -218,9 +169,40 @@ const HomePage = () => {
                 <div className="mx-auto mb-6">
                   <NumberedBadge number={3} size="sm" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Ongoing Support</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Ongoing Support</h3>
                 <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
                   Regular guidance and adjustments as your needs evolve over time
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Trust Indicators */}
+      {showTrustIndicators && (
+        <section className="py-8 px-6 bg-[#f8f9fa]">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-1 bg-[#1A3D5D] mx-auto mb-6 rounded-full"></div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Complete Discretion</h3>
+                <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
+                  No referrals, no shared records, no clinical paperwork. Your privacy is our priority.
+                </p>
+              </div>
+              <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-1 bg-[#1A3D5D] mx-auto mb-6 rounded-full"></div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Experienced Practitioners</h3>
+                <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
+                  Qualified substance misuse practitioners with over 40 years of combined experience.
+                </p>
+              </div>
+              <div className="text-center bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#1A3D5D] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-1 bg-[#1A3D5D] mx-auto mb-6 rounded-full"></div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Tailored Support</h3>
+                <p className="text-gray-700 leading-relaxed min-h-[3rem] flex items-center justify-center">
+                  One-to-one guidance designed around your lifestyle, schedule, and circumstances.
                 </p>
               </div>
             </div>
@@ -232,10 +214,9 @@ const HomePage = () => {
       {showCTA && (
         <section className="py-16 px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-[#1A3D5D] mb-6">Start with a conversation...</h2>
+            <h2 className="text-3xl font-semibold text-[#1A3D5D] mb-6">Start with a conversation...</h2>
             <p className="text-gray-700 mb-16 text-lg leading-relaxed">
-              Leave a confidential message and we'll call you back to discuss your options and the kind of support that
-              may fit your circumstances.
+              Leave us a message and we'll call you back to discuss your options in complete confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link href="/contact-phone" scroll={false}>
@@ -264,7 +245,7 @@ const HomePage = () => {
       <footer className="border-t border-gray-200 py-12 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
-            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-20 w-auto mx-auto mb-4" />
+            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-24 w-auto mx-auto mb-4" />
             <p className="text-gray-600 max-w-2xl mx-auto">
               Professional, confidential support for individuals and families affected by addiction.
             </p>
@@ -317,7 +298,7 @@ const HomePage = () => {
 
           <div className="pt-8 border-t border-gray-200">
             <p className="text-gray-500 text-sm">
-              © 2024 Caelen Bridge. All rights reserved. | We aim to respond within 24 hours during business days.
+              © 2025 Caelen Bridge. All rights reserved. | We aim to respond within 24 hours during business days.
             </p>
           </div>
         </div>

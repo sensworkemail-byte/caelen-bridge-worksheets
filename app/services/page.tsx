@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <header className="bg-white border-b border-gray-100 h-[70px] md:h-[70px] sm:h-[60px]">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           <Link href="/" className="flex-shrink-0">
-            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-40 w-auto" />
+            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-48 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -57,7 +57,7 @@ export default function ServicesPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-12 pb-8 px-6">
+      <section className="py-8 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#1A3D5D] mb-4">Service Options</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -68,7 +68,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="pt-4 pb-20 px-6">
+      <section className="py-8 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {/* One to One Support */}
@@ -190,7 +190,7 @@ export default function ServicesPage() {
       <footer className="border-t border-gray-200 py-12 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
-            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-16 w-auto mx-auto mb-4" />
+            <img src="/caelen_bridge_logo_white_bg.png" alt="Caelen Bridge" className="h-24 w-auto mx-auto mb-4" />
             <p className="text-gray-600 max-w-2xl mx-auto">
               Professional, confidential support for individuals and families affected by addiction.
             </p>
@@ -243,7 +243,7 @@ export default function ServicesPage() {
 
           <div className="pt-8 border-t border-gray-200">
             <p className="text-gray-500 text-sm">
-              © 2024 Caelen Bridge. All rights reserved. | We aim to respond within 24 hours during business days.
+              © 2025 Caelen Bridge. All rights reserved. | We aim to respond within 24 hours during business days.
             </p>
           </div>
         </div>
