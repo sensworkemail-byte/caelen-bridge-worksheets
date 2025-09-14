@@ -215,6 +215,15 @@ export default function ContactPage() {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/payments"
+                    className="text-gray-600 hover:text-[#1A3D5D]"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    Payments
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

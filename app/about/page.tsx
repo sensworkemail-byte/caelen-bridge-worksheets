@@ -208,6 +208,13 @@ export default function AboutPage() {
                 <Link href="/contact" className="block text-gray-600 hover:text-[#1A3D5D] transition-colors">
                   Contact
                 </Link>
+                <Link
+                  href="/payments"
+                  className="block text-gray-600 hover:text-[#1A3D5D] transition-colors"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  Payments
+                </Link>
               </div>
             </div>
           </div>

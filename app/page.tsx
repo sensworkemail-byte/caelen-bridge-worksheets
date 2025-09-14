@@ -292,6 +292,13 @@ const HomePage = () => {
                 <Link href="/contact" className="block text-gray-600 hover:text-[#0f2a42] transition-colors">
                   Contact
                 </Link>
+                <Link
+                  href="/payments"
+                  className="block text-gray-600 hover:text-[#0f2a42] transition-colors"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  Payments
+                </Link>
               </div>
             </div>
           </div>

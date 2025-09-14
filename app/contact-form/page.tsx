@@ -1,12 +1,15 @@
 "use client"
 
 import type React from "react"
-
 import Link from "next/link"
-import { Phone, X } from "lucide-react"
+import { Phone, X, Mail } from "lucide-react"
 import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 
 export default function ContactFormPage() {
+  const searchParams = useSearchParams()
+  const isInvoiceRequest = searchParams.get("type") === "invoice"
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -16,10 +19,10 @@ export default function ContactFormPage() {
     email: "",
     phone: "",
     textNumber: "",
-    serviceInterest: "",
+    serviceInterest: isInvoiceRequest ? "Invoice Request" : "",
     responseTime: "",
     contactMethod: "",
-    message: "",
+    message: isInvoiceRequest ? "I would like to request an invoice for payment. " : "",
     concernLevel: 5,
     urgencyLevel: 5,
     comfortLevel: 5,
@@ -131,10 +134,12 @@ export default function ContactFormPage() {
       <section className="pt-16 pb-6 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#1A3D5D] mb-6 text-balance">
-            Send Us a Confidential Message
+            {isInvoiceRequest ? "Request Payment Invoice" : "Send Us a Confidential Message"}
           </h1>
           <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Fill out our secure form and we'll respond within 24 hours during business days.
+            {isInvoiceRequest
+              ? "You are requesting a payment invoice. Please confirm your details below and the amount if known."
+              : "Fill out our secure form and we'll respond within 24 hours during business days."}
           </p>
         </div>
       </section>
@@ -142,6 +147,17 @@ export default function ContactFormPage() {
       {/* Enhanced Contact Form */}
       <section className="py-2 px-4">
         <div className="max-w-2xl mx-auto">
+          {isInvoiceRequest && (
+            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
+              <div className="flex items-center">
+                <Mail className="h-5 w-5 text-purple-600 mr-2" />
+                <p className="text-purple-800 font-medium">
+                  Invoice Request - We'll email you a detailed invoice with a secure payment button.
+                </p>
+              </div>
+            </div>
+          )}
+
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="preferredName" className="block text-sm font-medium text-[#1A3D5D] mb-2">
@@ -161,7 +177,7 @@ export default function ContactFormPage() {
 
             <div>
               <label htmlFor="service" className="block text-sm font-medium text-[#1A3D5D] mb-2">
-                Service Interest
+                {isInvoiceRequest ? "Request Type" : "Service Interest"}
               </label>
               <select
                 id="service"
@@ -170,12 +186,20 @@ export default function ContactFormPage() {
                 onChange={(e) => setFormData((prev) => ({ ...prev, serviceInterest: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1A3D5D] focus:border-transparent"
               >
-                <option value="">Select a service...</option>
-                <option value="individual">Individual Support</option>
-                <option value="family">Family Support</option>
-                <option value="detox">Community Detox Support</option>
-                <option value="training">Training</option>
-                <option value="consultation">General Consultation</option>
+                {isInvoiceRequest ? (
+                  <>
+                    <option value="Invoice Request">Invoice Request</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="">Select a service...</option>
+                    <option value="individual">Individual Support</option>
+                    <option value="family">Family Support</option>
+                    <option value="detox">Community Detox Support</option>
+                    <option value="training">Training</option>
+                    <option value="consultation">General Consultation</option>
+                  </>
+                )}
               </select>
             </div>
 
@@ -333,7 +357,7 @@ export default function ContactFormPage() {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-[#1A3D5D] mb-2">
-                Message *
+                {isInvoiceRequest ? "Invoice Details *" : "Message *"}
               </label>
               <textarea
                 id="message"
@@ -342,124 +366,128 @@ export default function ContactFormPage() {
                 required
                 value={formData.message}
                 onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
-                placeholder="Please share what brings you here today and how we can best support you..."
+                placeholder={
+                  isInvoiceRequest
+                    ? "Please provide details about the service you need invoiced and the amount if known..."
+                    : "Please provide as much information you are comfortable with or simply request us to contact you back"
+                }
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1A3D5D] focus:border-transparent"
               ></textarea>
             </div>
 
-            <div className="border-t pt-6 mt-8">
-              <h3 className="text-lg font-medium text-[#1A3D5D] mb-4">Brief Assessment (Optional)</h3>
-              <p className="text-sm text-gray-600 mb-6">
-                These questions help us understand your situation better and prepare for our conversation. All responses
-                are confidential.
-              </p>
+            {!isInvoiceRequest && (
+              <div className="border-t pt-6 mt-8">
+                <h3 className="text-lg font-medium text-[#1A3D5D] mb-4">Brief Assessment (Optional)</h3>
+                <p className="text-sm text-gray-600 mb-6">
+                  These questions help us understand your situation better and prepare for our conversation. All
+                  responses are confidential.
+                </p>
 
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
-                  {/* Updated question text */}
-                  is your level of use...
-                </label>
-                <div className="px-3">
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={formData.concernLevel}
-                    onChange={(e) => handleSliderChange("concernLevel", e.target.value)}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>1 - Not at all</span>
-                    <span className="font-medium text-[#1A3D5D]">{formData.concernLevel}</span>
-                    <span>10 - Significantly</span>
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-[#1A3D5D] mb-3">is your level of use...</label>
+                  <div className="px-3">
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={formData.concernLevel}
+                      onChange={(e) => handleSliderChange("concernLevel", e.target.value)}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>1 - Not at all</span>
+                      <span className="font-medium text-[#1A3D5D]">{formData.concernLevel}</span>
+                      <span>10 - Significantly</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
+                    How much do you think those closest to you would notice or be concerned if they knew the full
+                    picture?
+                  </label>
+                  <div className="px-3">
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={formData.urgencyLevel}
+                      onChange={(e) => handleSliderChange("urgencyLevel", e.target.value)}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>1 - Not at all</span>
+                      <span className="font-medium text-[#1A3D5D]">{formData.urgencyLevel}</span>
+                      <span>10 - Very concerned</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
+                    How important is it to you to make a change?
+                  </label>
+                  <div className="px-3">
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={formData.comfortLevel}
+                      onChange={(e) => handleSliderChange("comfortLevel", e.target.value)}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>1 - Not important</span>
+                      <span className="font-medium text-[#1A3D5D]">{formData.comfortLevel}</span>
+                      <span>10 - Very important</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
+                    How ready do you feel to take the first step?
+                  </label>
+                  <div className="px-3">
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={formData.impactLevel}
+                      onChange={(e) => handleSliderChange("impactLevel", e.target.value)}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>1 - Not ready</span>
+                      <span className="font-medium text-[#1A3D5D]">{formData.impactLevel}</span>
+                      <span>10 - Very ready</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
+                    How confident are you that support could help?
+                  </label>
+                  <div className="px-3">
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={formData.readinessLevel}
+                      onChange={(e) => handleSliderChange("readinessLevel", e.target.value)}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>1 - Not confident</span>
+                      <span className="font-medium text-[#1A3D5D]">{formData.readinessLevel}</span>
+                      <span>10 - Very confident</span>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
-                  How much do you think those closest to you would notice or be concerned if they knew the full picture?
-                </label>
-                <div className="px-3">
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={formData.urgencyLevel}
-                    onChange={(e) => handleSliderChange("urgencyLevel", e.target.value)}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>1 - Not at all</span>
-                    <span className="font-medium text-[#1A3D5D]">{formData.urgencyLevel}</span>
-                    <span>10 - Very concerned</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
-                  How important is it to you to make a change?
-                </label>
-                <div className="px-3">
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={formData.comfortLevel}
-                    onChange={(e) => handleSliderChange("comfortLevel", e.target.value)}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>1 - Not important</span>
-                    <span className="font-medium text-[#1A3D5D]">{formData.comfortLevel}</span>
-                    <span>10 - Very important</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
-                  How ready do you feel to take the first step?
-                </label>
-                <div className="px-3">
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={formData.impactLevel}
-                    onChange={(e) => handleSliderChange("impactLevel", e.target.value)}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>1 - Not ready</span>
-                    <span className="font-medium text-[#1A3D5D]">{formData.impactLevel}</span>
-                    <span>10 - Very ready</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-[#1A3D5D] mb-3">
-                  How confident are you that support could help?
-                </label>
-                <div className="px-3">
-                  <input
-                    type="range"
-                    min="1"
-                    max="10"
-                    value={formData.readinessLevel}
-                    onChange={(e) => handleSliderChange("readinessLevel", e.target.value)}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>1 - Not confident</span>
-                    <span className="font-medium text-[#1A3D5D]">{formData.readinessLevel}</span>
-                    <span>10 - Very confident</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
 
             {submitMessage && (
               <div
@@ -478,7 +506,7 @@ export default function ContactFormPage() {
               disabled={isSubmitting}
               className="w-full bg-[#1A3D5D] text-white px-8 py-4 rounded-lg hover:bg-[#1A3D5D]/90 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? "Sending..." : "Send Confidential Message"}
+              {isSubmitting ? "Sending..." : isInvoiceRequest ? "Request Invoice" : "Send Confidential Message"}
             </button>
           </form>
         </div>
