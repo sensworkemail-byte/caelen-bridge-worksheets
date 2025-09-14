@@ -11,7 +11,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Caelen - Private Support for Substance Concerns",
   description: "Discreet, professional guidance for individuals and families navigating alcohol and drug challenges",
-    generator: 'v0.app'
+  generator: "v0.app",
+  alternates: {
+    canonical: "https://caelenbridge.co.uk",
+  },
+  verification: {
+    google: "Xq6TGGy6-1koNe9B2NXQDZs_kg6ZIXRoTVBiR7zYV24",
+  },
 }
 
 export default function RootLayout({
