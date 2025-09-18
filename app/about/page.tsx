@@ -137,8 +137,8 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-semibold text-gray-900 mb-8">Considering your options?</h2>
           <p className="text-lg text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Every journey begins with a single conversation. I'm here to provide the support and guidance you need, when
-            you're ready.
+            Every journey begins with a single conversation. We are here to provide the support and guidance you need,
+            when you're ready.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
