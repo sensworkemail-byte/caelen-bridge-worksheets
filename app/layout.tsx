@@ -20,12 +20,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", type: "image/x-icon" },
-      { url: "/favicon-16x16.jpg", sizes: "16x16", type: "image/jpeg" },
-      { url: "/favicon-32x32.jpg", sizes: "32x32", type: "image/jpeg" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.jpg", sizes: "180x180", type: "image/jpeg" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: "/favicon.ico",
   },
 }
@@ -37,6 +35,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Esenyel Irfan",
+              jobTitle: "Accredited Practitioner",
+              affiliation: {
+                "@type": "Organization",
+                name: "Addiction Professionals Directory",
+                url: "https://www.addictionprofessionals.org.uk/",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="font-sans">{children}</body>
     </html>
   )
