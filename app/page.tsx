@@ -42,7 +42,7 @@ const HomePage = () => {
             </nav>
 
             {/* Phone Number */}
-            <div className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors flex items-center">
+            <div className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors flex items-center ml-6">
               <Phone className="h-4 w-4 mr-2" />
               <span className="hidden sm:inline">0800 654 6848</span>
             </div>

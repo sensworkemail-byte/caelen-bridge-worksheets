@@ -34,14 +34,14 @@ const PaymentsPage = () => {
               <Link href="/services" className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors">
                 Services
               </Link>
-              <Link href="/contact" className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors">
+              <Link href="/contact" className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors mr-8">
                 Contact
               </Link>
             </nav>
 
             <div className="flex items-center space-x-4">
               {/* Phone Number */}
-              <div className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors flex items-center mr-2">
+              <div className="text-[#1A3D5D] hover:text-[#0f2a42] transition-colors flex items-center">
                 <Phone className="h-4 w-4 mr-2" />
                 <span className="hidden sm:inline">0800 654 6848</span>
               </div>
@@ -80,9 +80,7 @@ const PaymentsPage = () => {
                 <CreditCard className="h-8 w-8 text-blue-600 mr-3" />
                 <h3 className="text-xl font-semibold text-gray-900">Card Payment</h3>
               </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                Pay securely by debit or credit card. You choose the amount.
-              </p>
+              <p className="text-gray-700 mb-6 leading-relaxed">Pay securely by debit or credit card.</p>
               <Button
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full w-full mb-4 shadow-md transition-all duration-300"
                 onClick={() => {
